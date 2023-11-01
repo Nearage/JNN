@@ -28,7 +28,13 @@ import io.github.nearage.jnn.util.Matrices;
  */
 public class Dense extends Layer {
 
+    /**
+     * Number of neurons
+     */
     private final int neurs;
+    /**
+     * Activation functions
+     */
     private final Activation[] activation;
 
     /**

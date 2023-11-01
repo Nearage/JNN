@@ -26,7 +26,7 @@ import io.github.nearage.jnn.input.Matrix;
 public interface Matrices {
 
     /**
-     * Performs a dot product of two matrices
+     * Performs the dot product of two matrices
      * 
      * @param a first matrix
      * @param b second matrix

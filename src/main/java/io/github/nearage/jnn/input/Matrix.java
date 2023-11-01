@@ -80,7 +80,7 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * Sets the element at the given index to de given value
+     * Sets the given index to the given value
      *
      * @param i row index
      * @param j col index
@@ -100,7 +100,7 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * Performs an action on each index in the matrix
+     * Performs an action for each index in the matrix
      *
      * @param action the action to perform
      */
@@ -114,7 +114,7 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * Performs an action on each element in the matrix
+     * Performs an action for each element in the matrix
      *
      * @param action the action to perform
      */
@@ -123,7 +123,7 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * Sets the value of each index in the matrix to the result of applying the
+     * Sets the value for each index in the matrix to the result of applying the
      * given function to that index
      *
      * @param function the function to apply
@@ -133,8 +133,8 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * Sets the value of each element in the matrix to the result of applying
-     * the given function to that element
+     * Sets the each value in the matrix to the result of applying the given
+     * function to that value
      *
      * @param function the function to apply
      */
@@ -169,7 +169,7 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * Reduces the matrix along the specified axis applying the given identity
+     * Reduces the matrix along the specified axis, applying the given identity
      * and function
      *
      * @param axis axis to reduce
@@ -179,13 +179,13 @@ public class Matrix implements Serializable {
      * @return the reduced matrix
      */
     public Matrix reduce(
-            int axis,
-            double identity,
-            BiFunction<Double, Double, Double> function
+        int axis,
+        double identity,
+        BiFunction<Double, Double, Double> function
     ) {
         Matrix result = new Matrix(
-                axis == 0 ? this.rows : 1,
-                axis == 1 ? this.cols : 1
+            axis == 0 ? this.rows : 1,
+            axis == 1 ? this.cols : 1
         );
 
         int range = axis == 0 ? this.cols : this.rows;
@@ -210,7 +210,7 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * Reduces the matrix to a single value applying the given identity and
+     * Reduces the matrix to a single value, applying the given identity and
      * function
      *
      * @param identity identity value
@@ -219,11 +219,11 @@ public class Matrix implements Serializable {
      * @return the reduced value
      */
     public double reduce(
-            double identity,
-            BiFunction<Double, Double, Double> function
+        double identity,
+        BiFunction<Double, Double, Double> function
     ) {
         Matrix result = this.reduce(0, identity, function)
-                            .reduce(1, identity, function);
+            .reduce(1, identity, function);
 
         return result.peek();
     }
@@ -269,22 +269,22 @@ public class Matrix implements Serializable {
      */
     public void describe() {
         System.out.printf(
-                "%s%n"
-                + " rows: %d%n"
-                + " cols: %d%n"
-                + " size: %d%n"
-                + " min:  %.8f%n"
-                + " max:  %.8f%n"
-                + " sum:  %.8f%n"
-                + " avg:  %.8f%n%n",
-                getClass().getSimpleName(),
-                this.rows,
-                this.cols,
-                this.size,
-                this.min(),
-                this.max(),
-                this.sum(),
-                this.avg()
+            "%s%n"
+            + " rows: %d%n"
+            + " cols: %d%n"
+            + " size: %d%n"
+            + " min:  %.8f%n"
+            + " max:  %.8f%n"
+            + " sum:  %.8f%n"
+            + " avg:  %.8f%n%n",
+            getClass().getSimpleName(),
+            this.rows,
+            this.cols,
+            this.size,
+            this.min(),
+            this.max(),
+            this.sum(),
+            this.avg()
         );
     }
 
@@ -293,14 +293,14 @@ public class Matrix implements Serializable {
      */
     public void summary() {
         System.out.printf(
-                "%s%n"
-                + " rows: %d%n"
-                + " cols: %d%n"
-                + " size: %d%n%n",
-                getClass().getSimpleName(),
-                this.rows,
-                this.cols,
-                this.size
+            "%s%n"
+            + " rows: %d%n"
+            + " cols: %d%n"
+            + " size: %d%n%n",
+            getClass().getSimpleName(),
+            this.rows,
+            this.cols,
+            this.size
         );
     }
 
@@ -310,9 +310,9 @@ public class Matrix implements Serializable {
     public void print() {
         this.iterate((i, j) -> {
             System.out.printf(
-                    "%11.8f %s",
-                    this.get(i, j),
-                    this.cols - j == 1 ? System.lineSeparator() : ""
+                "%11.8f %s",
+                this.get(i, j),
+                this.cols - j == 1 ? System.lineSeparator() : ""
             );
         });
 

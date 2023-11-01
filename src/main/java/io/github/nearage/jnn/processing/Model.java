@@ -80,14 +80,6 @@ public abstract class Model {
         double learningRate
     ) throws Exception;
     
-//    public abstract void train(
-//        int epochs,
-//        Matrix[] inputs,
-//        Matrix[] targets,
-//        Loss[] loss,
-//        double learningRate
-//    ) throws Exception;
-    
     /**
      * Prints a string summary of the model
      * 
