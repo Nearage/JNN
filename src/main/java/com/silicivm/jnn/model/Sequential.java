@@ -126,21 +126,6 @@ public class Sequential extends Model {
             + System.lineSeparator()
         );
     }
-
-//    @Override
-//    public void train(
-//        int epochs,
-//        Matrix[] inputs,
-//        Matrix[] targets,
-//        Loss[] loss,
-//        double learningRate
-//    ) throws Exception {
-//        for (int i = 0; i < inputs.length; i++) {
-//            System.out.println("Batch " + (i + 1) + System.lineSeparator());
-//            
-//            this.train(epochs, inputs[i], targets[i], loss, learningRate);
-//        }
-//    }
     
     @Override
     public void summary() throws Exception {
