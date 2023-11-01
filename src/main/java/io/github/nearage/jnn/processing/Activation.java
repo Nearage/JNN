@@ -78,6 +78,8 @@ public interface Activation {
 
     /**
      * Softmax activation function
+     * 
+     * TODO: Softmax propagation
      */
     public static Activation[] Softmax = {
         input -> {

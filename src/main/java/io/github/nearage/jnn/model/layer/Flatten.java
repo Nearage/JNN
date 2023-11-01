@@ -20,7 +20,7 @@ import io.github.nearage.jnn.input.Matrix;
 import io.github.nearage.jnn.processing.Layer;
 
 /**
- * Flatten layer
+ * TODO: Flatten layer
  * 
  * @author Nearage <https://github.com/Nearage>
  */

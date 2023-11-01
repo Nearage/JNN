@@ -20,7 +20,7 @@ import io.github.nearage.jnn.input.Matrix;
 import io.github.nearage.jnn.processing.Layer;
 
 /**
- * Convolutional layer
+ * TODO: Convolutional layer
  * 
  * @author Nearage <https://github.com/Nearage>
  */
