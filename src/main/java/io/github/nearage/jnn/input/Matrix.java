@@ -29,7 +29,7 @@ import java.util.function.Function;
 
 /**
  * Matrix of doubles
- * 
+ *
  * @author Nearage <https://github.com/Nearage>
  */
 public class Matrix implements Serializable {
@@ -38,12 +38,12 @@ public class Matrix implements Serializable {
      * Number of rows
      */
     public final int rows;
-    
+
     /**
      * Number of cols
      */
     public final int cols;
-    
+
     /**
      * Size of the matrix
      */
@@ -178,10 +178,14 @@ public class Matrix implements Serializable {
      *
      * @return the reduced matrix
      */
-    public Matrix reduce(int axis, double identity, BiFunction<Double, Double, Double> function) {
+    public Matrix reduce(
+            int axis,
+            double identity,
+            BiFunction<Double, Double, Double> function
+    ) {
         Matrix result = new Matrix(
-            axis == 0 ? this.rows : 1,
-            axis == 1 ? this.cols : 1
+                axis == 0 ? this.rows : 1,
+                axis == 1 ? this.cols : 1
         );
 
         int range = axis == 0 ? this.cols : this.rows;
@@ -214,8 +218,12 @@ public class Matrix implements Serializable {
      *
      * @return the reduced value
      */
-    public double reduce(double identity, BiFunction<Double, Double, Double> function) {
-        Matrix result = this.reduce(0, identity, function).reduce(1, identity, function);
+    public double reduce(
+            double identity,
+            BiFunction<Double, Double, Double> function
+    ) {
+        Matrix result = this.reduce(0, identity, function)
+                            .reduce(1, identity, function);
 
         return result.peek();
     }
@@ -261,22 +269,22 @@ public class Matrix implements Serializable {
      */
     public void describe() {
         System.out.printf(
-            "%s%n"
-            + " rows: %d%n"
-            + " cols: %d%n"
-            + " size: %d%n"
-            + " min:  %.8f%n"
-            + " max:  %.8f%n"
-            + " sum:  %.8f%n"
-            + " avg:  %.8f%n%n",
-            getClass().getSimpleName(),
-            this.rows,
-            this.cols,
-            this.size,
-            this.min(),
-            this.max(),
-            this.sum(),
-            this.avg()
+                "%s%n"
+                + " rows: %d%n"
+                + " cols: %d%n"
+                + " size: %d%n"
+                + " min:  %.8f%n"
+                + " max:  %.8f%n"
+                + " sum:  %.8f%n"
+                + " avg:  %.8f%n%n",
+                getClass().getSimpleName(),
+                this.rows,
+                this.cols,
+                this.size,
+                this.min(),
+                this.max(),
+                this.sum(),
+                this.avg()
         );
     }
 
@@ -285,14 +293,14 @@ public class Matrix implements Serializable {
      */
     public void summary() {
         System.out.printf(
-            "%s%n"
-            + " rows: %d%n"
-            + " cols: %d%n"
-            + " size: %d%n%n",
-            getClass().getSimpleName(),
-            this.rows,
-            this.cols,
-            this.size
+                "%s%n"
+                + " rows: %d%n"
+                + " cols: %d%n"
+                + " size: %d%n%n",
+                getClass().getSimpleName(),
+                this.rows,
+                this.cols,
+                this.size
         );
     }
 
@@ -302,9 +310,9 @@ public class Matrix implements Serializable {
     public void print() {
         this.iterate((i, j) -> {
             System.out.printf(
-                "%11.8f %s",
-                this.get(i, j),
-                this.cols - j == 1 ? System.lineSeparator() : ""
+                    "%11.8f %s",
+                    this.get(i, j),
+                    this.cols - j == 1 ? System.lineSeparator() : ""
             );
         });
 
@@ -331,7 +339,7 @@ public class Matrix implements Serializable {
      * Loads a matrix from a file in the specified path
      *
      * @param path path
-     * 
+     *
      * @return the loaded matrix
      *
      * @throws Exception a base exception with an error message
